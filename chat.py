@@ -1,5 +1,6 @@
 import os, sys
 from flask import Flask, request
+from utils import wit_response
 from pymessenger import Bot
 
  # Our flask object with root name
@@ -38,9 +39,20 @@ def webhook():
 						messaging_text = messaging_event['message']['text']
 					else:
 						messaging_text= 'no text'
+					# Echoing Response Code	
+					# response = "Some Text"
+					# bot.send_text_message(sender_id,response)    # Used to reply back to the messenger		
 
-					response = "Some Text"
-					bot.send_text_message(sender_id,response)    # Used to reply back to the messenger		
+					response = None
+
+					entity,value = wit_response(messaging_text)
+
+					if (entity == 'origin_country'):
+						response = "Ok, I'll send you the data soon"
+
+					if (response == None):
+						response == "Sorry I did not understand"	
+					bot.send_text_message(sender_id,response)		
 
 	return "ok",200
 
