@@ -60,6 +60,10 @@ def webhook():
 						
 						response = car_name + ' is a car made in United States' 
 
+					if(entity == 'wit/greetings'):
+						response = "Hello! How may I help you?"
+
+
 					if (response == None):
 						response == "Sorry I did not understand"	
 					bot.send_text_message(sender_id,response)		
