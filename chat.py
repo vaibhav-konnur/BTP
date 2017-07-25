@@ -2,7 +2,11 @@ import os, sys
 from flask import Flask, request
 from utils import wit_response
 from pymessenger import Bot
+from data import get_data
 
+# Getting the database of cars in a list of dicts
+
+data = get_data()
  # Our flask object with root name
 app = Flask(__name__) 
 
@@ -48,7 +52,12 @@ def webhook():
 					entity,value = wit_response(messaging_text)
 
 					if (entity == 'origin_country'):
-						response = "Ok, I'll send you the data soon"
+						for row in data:
+							if data[row]['Origin']== 'US':
+								car_name = data[row]['Car']
+								break
+						
+						response = car_name + 'is a car made in United States' 
 
 					if (response == None):
 						response == "Sorry I did not understand"	
