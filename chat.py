@@ -58,7 +58,7 @@ def webhook():
 								car_name = dataset[row]['Car']
 								break
 						
-						response = car_name + 'is a car made in United States' 
+						response = car_name + ' is a car made in United States' 
 
 					if (response == None):
 						response == "Sorry I did not understand"	
