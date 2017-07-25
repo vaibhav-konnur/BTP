@@ -39,7 +39,7 @@ def webhook():
 					else:
 						messaging_text= 'no text'
 
-					response = messaging_text
+					response = "Some Text"
 					bot.send_text_message(sender_id,response)    # Used to reply back to the messenger		
 
 	return "ok",200
