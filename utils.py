@@ -4,7 +4,7 @@ access_token = "BYYMBOAXSQMN3QNL3A2VGRTKHHPTDTD7"
 
 client = Wit(access_token = access_token)
 
-message_text = "Show me cars from US"
+message_text = "Hi"
 
 
 

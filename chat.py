@@ -60,7 +60,7 @@ def webhook():
 						
 						response = car_name + ' is a car made in United States' 
 
-					if(entity == 'wit/greetings'):
+					if(entity == 'greetings' and value==True):
 						response = "Hello! How may I help you?"
 
 
