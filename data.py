@@ -6,4 +6,10 @@ def get_data():
 	for row in input_file:
 		data_list.append(row)
 
-	return data_list	
+	return data_list
+
+# print(data_list[3]['Origin'])
+
+# print(type(data_list))
+
+# print(type(data_list[2]))
