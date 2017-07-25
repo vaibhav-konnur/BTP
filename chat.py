@@ -7,6 +7,7 @@ from data import get_data
 # Getting the database of cars in a list of dicts
 
 dataset = get_data()
+dataset_length = len(dataset)
  # Our flask object with root name
 app = Flask(__name__) 
 
@@ -52,7 +53,7 @@ def webhook():
 					entity,value = wit_response(messaging_text)
 
 					if (entity == 'origin_country'):
-						for row in dataset:
+						for row in range(dataset_length):
 							if dataset[row]['Origin']== 'US':
 								car_name = dataset[row]['Car']
 								break
